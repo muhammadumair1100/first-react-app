@@ -5,42 +5,31 @@ export default function Profile({ name, age, city, hobbies }) {
 
   function toggleButton() {
     setDet(!moreDet);
+    console.log("Hello");
   }
+  const style = {
+    backgroundColor: "#393E46",
+    padding: "20px",
+    borderRadius: "20px",
+  };
 
-  if (moreDet) {
-    return (
-      <div
-        style={{
-          backgroundColor: "#393E46",
-          padding: "20px",
-          borderRadius: "20px",
-        }}
-      >
-        <h1>Name : {name}</h1>
-        <h2>Age : {age}</h2>
-        <h3>City : {city}</h3>
+  return (
+    <div style={style}>
+      <h1>Name : {name}</h1>
+      <h2>Age : {age}</h2>
+      <h3>City : {city}</h3>
+      {moreDet && (
         <p>
-          {hobbies.map((hobby) => (
-            <li>{hobby}</li>
+          {hobbies.map((hobby, index) => (
+            <li key={index}>{hobby}</li>
           ))}
         </p>
+      )}
+      {moreDet ? (
         <button onClick={toggleButton}>Hide Detail</button>
-      </div>
-    );
-  } else {
-    return (
-      <div
-        style={{
-          backgroundColor: "gray",
-          padding: "10px",
-          borderRadius: "20px",
-        }}
-      >
-        <h1>Name : {name}</h1>
-        <h2>Age : {age}</h2>
-        <h3>City : {city}</h3>
+      ) : (
         <button onClick={toggleButton}>Show Detail</button>
-      </div>
-    );
-  }
+      )}
+    </div>
+  );
 }
