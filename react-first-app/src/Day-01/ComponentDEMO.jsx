@@ -5,7 +5,6 @@ function FirstComponent() {
   return (
     <div style={style}>
       <SecondComponent />
-      <SecondComponent />
     </div>
   );
 }
