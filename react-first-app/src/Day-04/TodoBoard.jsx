@@ -67,9 +67,13 @@ export default function TodoBoard() {
     );
   };
 
-  newTask.map((Task) => {
-    console.log(Task.isDone);
-  });
+  let isDoneOrNotAll = () => {
+    setTask((prevTasks) =>
+      prevTasks.map((Task) => {
+        return { ...Task, isDone: true };
+      })
+    );
+  };
 
   return (
     <div
@@ -118,6 +122,7 @@ export default function TodoBoard() {
       </ul>
       <br />
       <button onClick={upperCaseAll}>UpperCase All</button>
+      <button onClick={isDoneOrNotAll}>Done All</button>
     </div>
   );
 }
