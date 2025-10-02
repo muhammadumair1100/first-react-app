@@ -20,13 +20,6 @@ export default function TodoBoard() {
 
   let deleteTask = (id) => {
     setTask(newTask.filter((Task) => Task.id !== id));
-    setTask(
-      newTask.filter((Task) => {
-        if (Task.id !== id) {
-          Task.todo.toUpperCase();
-        }
-      })
-    );
   };
 
   let upperCaseAll = () => {
@@ -70,7 +63,7 @@ export default function TodoBoard() {
   let isDoneOrNotAll = () => {
     setTask((prevTasks) =>
       prevTasks.map((Task) => {
-        return { ...Task, isDone: true };
+        return { ...Task, isDone: !Task.isDone };
       })
     );
   };
